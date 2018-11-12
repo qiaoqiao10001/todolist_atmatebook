@@ -1,7 +1,6 @@
 //统一派发action
-import {CHANGE_INPUT_VALUE, DELETE_ITEM, SUBMIT_VALUE,INIT_LIST} from "./actionType";
-import axios from "axios";
-//import store from "./index";
+import {GET_INIT_LIST,CHANGE_INPUT_VALUE, DELETE_ITEM, SUBMIT_VALUE,INIT_LIST} from "./actionType";
+
 
 
 export const getInputChangeAction = (value) => ({
@@ -23,12 +22,27 @@ export const getInitListAction = (value) => ({
     value
 })
 
-export const ListDataAction = () => {  //获取数据的函数
-    return (dispatch) => {
-        axios.get('/mydata').then((res) => {
-            const data = res.data
-            const action = getInitListAction(data)
-            dispatch(action)
-        })
-    }
-}
+export const initListAction = (value) => ({
+    type:INIT_LIST,
+    value
+})
+
+
+
+export const getInitList = () => ({
+    type:GET_INIT_LIST
+})
+
+// export const getInitList = () => ({
+//     type:GET_INIT_LIST
+// })
+
+// export const ListDataAction = () => {  //获取数据的函数
+//     return (dispatch) => {
+//         axios.get('/mydata').then((res) => {
+//             const data = res.data
+//             const action = getInitListAction(data)
+//             dispatch(action)
+//         })
+//     }
+// }

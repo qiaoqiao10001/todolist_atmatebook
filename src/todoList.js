@@ -3,8 +3,8 @@ import React from 'react'
 import 'antd/dist/antd.css'
 import store from './store'
 import TodoListUI from './todoListUI'
-import {ListDataAction,getInputChangeAction,getSubmitValueAction,getDeleteItemAction} from './store/actionCreators'
-
+import {getInitList,getInputChangeAction,getSubmitValueAction,getDeleteItemAction} from './store/actionCreators'
+import axios from 'axios'
 
 
 
@@ -39,13 +39,17 @@ export default class TodoList extends React.Component{
     }
 
     componentDidMount(){
-        // axios.get('/mydata').then((res) => {
-        //     const data = res.data
-        //     const action = getInitListAction(data)
-        //     store.dispatch(action)
-        // })
-        const action = ListDataAction();
-        store.dispatch(action)  //此时action是函数，  redux-thunk 才能使用函数
+        /*axios.get('/mydata').then((res) => {
+            const data = res.data
+            const action = getInitListAction(data)
+            store.dispatch(action)
+        })*/
+        const action = getInitList();
+        store.dispatch(action);
+        console.log(action)
+
+        //const action = ListDataAction();
+        //store.dispatch(action)  //此时action是函数，  redux-thunk 才能使用函数
     }
 
     render(){

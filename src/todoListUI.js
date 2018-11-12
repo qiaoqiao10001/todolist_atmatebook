@@ -5,7 +5,7 @@ const TodoListUI = (props) => {
     return (
         <div>
             <Input type="text" onChange={props.handleInputChange} value={props.value} style={{width:'400px',margin:'20px 20px 0 20px'}}/>
-            <Button type="primary" onClick={props.handleSubmitValue}>提交</Button>
+            <Button type="primary" onClick={props.handleSubmitValue}>提1交</Button>
             <List
                 style={{width:'400px',marginLeft:'20px'}}
                 bordered
